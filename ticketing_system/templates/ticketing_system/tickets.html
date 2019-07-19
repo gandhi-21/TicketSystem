@@ -1,0 +1,11 @@
+<!--  This is the supervisor dashboard showing all the tickets and who they are assigned to   -->
+
+{% if tickets_list %}
+    <ul>
+    {% for Ticket in tickets_list %}
+        <li>{{ Ticket.details }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No tickets are available.</p>
+{% endif %}
