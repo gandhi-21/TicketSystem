@@ -1,0 +1,30 @@
+<!-- This is the homepage showing the option to submit a ticket  -->
+
+<h1> Ticketing System Home Page </h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'ticketing_system:submit_ticket' %}" method="post">
+    {% csrf_token %}
+    <label for="name">Enter Name</label>
+    <input type="text" value="name" name="name">
+
+    <br>
+
+    <label for="sbu_id">Enter SBU Id</label>
+    <input type="text" value="SBU ID#" name="sbu_id">
+
+    <br>
+
+    <label for="location">Enter Location</label>
+    <input type="text" value="Location" name="location">
+
+    <br>
+
+    <label for="details">Enter details of the issue</label>
+    <input type="text" value="Details" name="details">
+
+    <br>
+
+    <input type="submit" value="Submit" />
+</form>

@@ -1,0 +1,35 @@
+<!-- This is the homepage to register a new employee  -->
+
+<h1> Ticketing System New Employee Page </h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'ticketing_system:create_employee' %}" method="post">
+    {% csrf_token %}
+    <label for="usernmae">Enter username</label>
+    <input type="text" value="username" name="username">
+
+    <br>
+
+    <label for="password">Enter password</label>
+    <input type="text" value="password" name="password">
+
+    <br>
+
+    <label for="email">Enter email</label>
+    <input type="email" value="email" name="email">
+
+    <br>
+
+    <label for="name">Enter name</label>
+    <input type="text" value="name" name="name">
+
+    <br>
+
+    <label for="department">Enter department</label>
+    <input type="text" value="department" name="department">
+
+    <br>
+
+    <input type="submit" value="Submit" />
+</form>

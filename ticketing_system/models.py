@@ -1,6 +1,13 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
+
+
+class Employee(models.Model):
+    username = models.CharField(max_length=20, unique=True, default="username")
+    name = models.CharField(max_length=20)
+    department = models.CharField(max_length=20)
+    tickets_assigned = models.IntegerField(default=0)
 
 
 class Ticket(models.Model):
@@ -11,10 +18,7 @@ class Ticket(models.Model):
     details = models.CharField(max_length=100)
     time_stamp = models.DateTimeField('date submitted')
     ticket_assigned = models.BooleanField(default=False)
-    ticket_assigned_to = models.CharField(max_length=20)
+    ticket_assigned_to = models.ForeignKey(Employee, on_delete=models.CASCADE, default=None)
 
 
-class Employee(models.Model):
-    name = models.CharField(max_length=20)
-    department = models.CharField(max_length=20)
-    tickets_assigned = models.ForeignKey(Ticket, on_delete=models.CASCADE)
+

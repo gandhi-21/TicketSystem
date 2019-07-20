@@ -1,0 +1,30 @@
+<!-- This is the login page for employee -->
+
+<h1> Ticketing System Employee login </h1>
+
+{% if error_message %} <p><strong>{{ error_message }}</strong></p> {% endif %}
+
+<form action="{% url 'ticketing_system:employee' %}" method="post">
+    {% csrf_token %}
+    <label for="username">Enter username</label>
+    <input type="text" name="username" value="username">
+
+    <br>
+
+    <label for="password">Enter the password</label>
+    <input type="password" value="password" name="password">
+
+    <br>
+
+    <input type="submit" value="login">
+
+    <br>
+
+    <label for="New User">New Employee Registration</label>
+
+    <br>
+
+    <a href="new">Register</a>
+
+</form>
+
