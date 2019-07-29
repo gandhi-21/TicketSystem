@@ -18,7 +18,7 @@ class Ticket(models.Model):
     details = models.CharField(max_length=100)
     time_stamp = models.DateTimeField('date submitted')
     ticket_assigned = models.BooleanField(default=False)
-    ticket_assigned_to = models.ForeignKey(Employee, on_delete=models.CASCADE, default=None)
+    ticket_assigned_to = models.CharField(max_length=20, unique=False, default="admin")
 
 
 
